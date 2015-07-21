@@ -1,4 +1,23 @@
+function Fruit (name, price, quantity) {
+	this.name = name;
+	this.price = price;
+	this.quantity = 0;
+	};
+
+function randomNumber(min, max) {
+	return Math.floor(Math.random() * (1 + max - min) + min);
+}
+
+var price = randomNumber(0.5,9.99);
+var apples = new Fruit ("apples", price, 0);
+var bananas = new Fruit ("bananas", price, 0);
+var pears = new Fruit ("pears", price, 0);
+var oranges = new Fruit ("oranges", price, 0);
+
+
 $(document).ready(function(){
+	var testNum = 5;
+	console.log("TEST NUM 1: " , testNum);
 $("[name='submitButtonApple']").on('click', function() {
 			apples.quantity++;
 			$(".appleQuantity").html("Apple Quantity: " + apples.quantity);
@@ -19,30 +38,15 @@ $("[name='submitButtonBanana']").on('click', function() {
 			$(".bananaQuantity").html("Banana Quantity: " + bananas.quantity);
 			});
 
-
-
-function randomNumber(min, max) {
-	return Math.floor(Math.random() * (1 + max - min) + min);
-}
-
-function Fruit (name, price, quantity) {
-	this.name = name;
-	this.price = price;
-	this.quantity = 0;
-	};	
-	
-
 var totalCash = 100;
 /*var inventory = [];*/
+console.log("TEST NUM 2: " , testNum);
 
-var price = randomNumber(0.5,9.99);
-var currentPrice = priceGenerator();
+/*var currentPrice = priceGenerator();
+*/
 var totalSpent;
 
-var apples = new Fruit ("apples", price, 0);
-var bananas = new Fruit ("bananas", price, 0);
-var pears = new Fruit ("pears", price, 0);
-var oranges = new Fruit ("oranges", price, 0);
+
 /*var fruits = ["apples", "bananas", "pears", "oranges"];
 console.log(apples.price);
 console.log(fruits.length);*/
@@ -54,16 +58,20 @@ function buyFruit(fruitSelected){
 		spentOnApples += applePrice;
 		};
 
-setInterval(function(){priceGenerator(apples.price)}, 2000);
 
+console.log("TEST NUM 3: " , testNum);
+/*setInterval(function(){*/priceGenerator(testNum)/*}, 2000)*/;
+priceGenerator(testNum);
+console.log("TEST NUM 4: " , testNum);
 function priceGenerator (price) {
+/*	console.log("HERE: " , price);
 		var num = randomNumber(0,1);
 		if (num == 0){
-			price += .5;
+			price = price + 0.5;
 			console.log(price);
 			console.log("price up 50");
 		} else {
-			price -= .5;
+			price = price - 0.5;
 			console.log(price);
 			console.log("price down 50");
 		} 
@@ -76,8 +84,13 @@ function priceGenerator (price) {
 		} else {
 			console.log(price);
 			return price;		
-	};
+	};*/
+	price = price + 2 ;
+	console.log("price " + price);
 };
+console.log("TEST NUM 5: " , testNum);
+priceGenerator(testNum);
+priceGenerator(testNum);
 	/*priceGenerator;
 var upOrDown = function(){
 	//go up or down .50
@@ -87,11 +100,6 @@ var upOrDown = function(){
 		return -.5;
 	}
 };*/
-
-
-
-
-console.log(apples);
 
 var changePrices = function(){
 for(var i = 0; i<fruits.length; i++){
