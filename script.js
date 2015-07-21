@@ -1,4 +1,24 @@
 $(document).ready(function(){
+$("[name='submitButtonApple']").on('click', function() {
+			apples.quantity++;
+			$(".appleQuantity").html("Apple Quantity: " + apples.quantity);
+			});
+
+$("[name='submitButtonOrange']").on('click', function() {
+			oranges.quantity++;
+			$(".orangeQuantity").html("Orange Quantity: " + oranges.quantity);
+			});
+
+$("[name='submitButtonPear']").on('click', function() {
+			pears.quantity++;
+			$(".pearQuantity").html("Pear Quantity: " + pears.quantity);
+			});
+
+$("[name='submitButtonBanana']").on('click', function() {
+			bananas.quantity++;
+			$(".bananaQuantity").html("Banana Quantity: " + bananas.quantity);
+			});
+
 
 
 function randomNumber(min, max) {
@@ -11,10 +31,6 @@ function Fruit (name, price, quantity) {
 	this.quantity = 0;
 	};	
 	
-$("button").on('click', function() {
-			quantity++;
-			return quantity;
-			});
 
 var totalCash = 100;
 /*var inventory = [];*/
@@ -27,9 +43,9 @@ var apples = new Fruit ("apples", price, 0);
 var bananas = new Fruit ("bananas", price, 0);
 var pears = new Fruit ("pears", price, 0);
 var oranges = new Fruit ("oranges", price, 0);
-var fruits = ["apples", "bananas", "pears", "oranges"];
+/*var fruits = ["apples", "bananas", "pears", "oranges"];
 console.log(apples.price);
-console.log(fruits.length);
+console.log(fruits.length);*/
 /*var cash = 100;
 var fruitSelected=apples;*/
 function buyFruit(fruitSelected){
@@ -38,22 +54,31 @@ function buyFruit(fruitSelected){
 		spentOnApples += applePrice;
 		};
 
-window.setInterval(priceGenerator(), 15000);
+setInterval(function(){priceGenerator(apples.price)}, 2000);
 
-function priceGenerator () {
-	for(var i = 0; i < fruits.length; i++){
-		fruits[i].price += upOrDown;
+function priceGenerator (price) {
+		var num = randomNumber(0,1);
+		if (num == 0){
+			price += .5;
+			console.log(price);
+			console.log("price up 50");
+		} else {
+			price -= .5;
+			console.log(price);
+			console.log("price down 50");
+		} 
 		if (price < 0.50) {
 			price = 0.50;
+			return price;
 		} else if (price > 9.99) {
 			price = 9.99;
+			return price;
 		} else {
-		var runningPrice = (price);
-		return runningPrice;
-		}
-	}
+			console.log(price);
+			return price;		
+	};
 };
-
+	/*priceGenerator;
 var upOrDown = function(){
 	//go up or down .50
 	if (randomNumber(0,1) > .5){
@@ -61,7 +86,7 @@ var upOrDown = function(){
 	} else {
 		return -.5;
 	}
-}
+};*/
 
 
 
@@ -157,3 +182,7 @@ var timer = window.setInterval (function {
 
 }, 15000); 
 */
+
+	/*var fruits = ["apples", "bananas", "pears", "oranges"];
+	for(var i = 0; i < fruits.length; i++){
+		console.log(apples.price);*/
