@@ -13,7 +13,8 @@ var apples = new Fruit ("apples", price, 0);
 var bananas = new Fruit ("bananas", price, 0);
 var pears = new Fruit ("pears", price, 0);
 var oranges = new Fruit ("oranges", price, 0);
-
+console.log(apples);
+var kiwi = {price: 8, quantity: 0};
 
 $(document).ready(function(){
 	var testNum = 5;
@@ -63,9 +64,9 @@ console.log("TEST NUM 3: " , testNum);
 /*setInterval(function(){*/priceGenerator(testNum)/*}, 2000)*/;
 priceGenerator(testNum);
 console.log("TEST NUM 4: " , testNum);
-function priceGenerator (price) {
-/*	console.log("HERE: " , price);
-		var num = randomNumber(0,1);
+function priceGenerator (fruit) {
+	console.log("top of function: " , price);
+		/*var num = randomNumber(0,1);
 		if (num == 0){
 			price = price + 0.5;
 			console.log(price);
@@ -85,11 +86,10 @@ function priceGenerator (price) {
 			console.log(price);
 			return price;		
 	};*/
-	price = price + 2 ;
-	console.log("price " + price);
+	console.log(fruit.price);
 };
 console.log("TEST NUM 5: " , testNum);
-priceGenerator(testNum);
+priceGenerator(kiwi);
 priceGenerator(testNum);
 	/*priceGenerator;
 var upOrDown = function(){
